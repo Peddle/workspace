@@ -24,10 +24,5 @@ export default function Home() {
   );
 }
 
-In this landing page:
-- We create a full-height section with a gradient background.
-- We display a large headline and a brief description of the resignation letter generator.
-- We add a prominent "Get Started" button that links to the `/generator` page.
-
-3. Update the `src/app/generator/page.tsx` file to change the form submission URL:
+And here's the `src/app/generator/page.tsx` file, which should remain unchanged:
 
