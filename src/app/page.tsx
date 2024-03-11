@@ -76,13 +76,3 @@ export default function Home() {
     </main>
   );
 }
-
-These changes will give the form a more professional and stylish appearance:
-
-- The form now has a white background with a shadow effect to make it stand out.
-- The input fields and labels have consistent styling using the custom Tailwind CSS classes defined in `globals.css`.
-- The submit button has an updated style with a blue background and hover effect.
-- The generated resignation letter is also displayed in a white box with a shadow effect.
-- The overall layout is centered and has some padding for better readability.
-
-Feel free to further customize the styles according to your preferences and branding.
