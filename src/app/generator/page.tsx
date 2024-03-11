@@ -12,6 +12,7 @@ export default function Home() {
     reason: '',
   });
   const [resignationLetter, setResignationLetter] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,6 +20,7 @@ export default function Home() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await fetch('/api/generate', {
@@ -38,6 +40,8 @@ export default function Home() {
     } catch (error) {
       console.error('Error:', error);
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -68,7 +72,9 @@ export default function Home() {
           <label htmlFor="reason" className="label">Reason for Leaving:</label>
           <textarea id="reason" name="reason" value={formData.reason} onChange={handleChange} className="input-field" required />
         </div>
-        <button type="submit" className="button w-full">Generate Resignation Letter</button>
+        <button type="submit" className="button w-full" disabled={isLoading}>
+          {isLoading ? 'Generating...' : 'Generate Resignation Letter'}
+        </button>
       </form>
       {resignationLetter && (
         <div className="bg-white shadow-md rounded-lg p-6 whitespace-pre-wrap">{resignationLetter}</div>
@@ -77,3 +83,16 @@ export default function Home() {
   );
 }
 
+The changes made:
+
+1. Added a new state variable called `isLoading` to track the loading state of the request.
+
+2. Updated the `handleSubmit` function to set `isLoading` to `true` before making the API request and set it back to `false` after receiving the response or encountering an error.
+
+3. Added the `disabled` attribute to the submit button, which is controlled by the `isLoading` state. The button will be disabled while the request is pending.
+
+4. Updated the submit button text to display "Generating..." when `isLoading` is `true`, indicating that the request is in progress.
+
+With these modifications, the submit button will show "Generating..." and be disabled while the request is pending. Once the response is received or an error occurs, the button will revert back to its original state, displaying "Generate Resignation Letter" and being clickable again.
+
+This provides a clear visual indication to the user that the generation process is ongoing and prevents them from submitting multiple requests simultaneously.
