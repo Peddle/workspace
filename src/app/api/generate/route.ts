@@ -1,4 +1,3 @@
-```ts
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
@@ -9,8 +8,4 @@ export async function POST(request: Request) {
 
   return NextResponse.json({ resignationLetter });
 }
-```
 
-This code sets up a basic form for users to input their job details. When the form is submitted, it sends a POST request to the `/api/generate` endpoint with the form data. The API route currently returns a placeholder "Lorem ipsum" text, but you can replace it with the actual AI-powered resignation letter generation logic later.
-
-The generated resignation letter is then displayed below the form.
