@@ -41,39 +41,48 @@ export default function Home() {
   };
 
   return (
-    <main className="max-w-4xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Resignation Letter Generator</h1>
-      <form onSubmit={handleSubmit} className="mb-8">
+    <main className="max-w-3xl mx-auto p-8">
+      <h1 className="text-4xl font-bold mb-8 text-center">Resignation Letter Generator</h1>
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 mb-8">
         <div className="mb-4">
-          <label htmlFor="name" className="block mb-1">Name:</label>
-          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+          <label htmlFor="name" className="label">Name:</label>
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="input-field" required />
         </div>
         <div className="mb-4">
-          <label htmlFor="position" className="block mb-1">Position:</label>
-          <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+          <label htmlFor="position" className="label">Position:</label>
+          <input type="text" id="position" name="position" value={formData.position} onChange={handleChange} className="input-field" required />
         </div>
         <div className="mb-4">
-          <label htmlFor="company" className="block mb-1">Company:</label>
-          <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+          <label htmlFor="company" className="label">Company:</label>
+          <input type="text" id="company" name="company" value={formData.company} onChange={handleChange} className="input-field" required />
         </div>
         <div className="mb-4">
-          <label htmlFor="startDate" className="block mb-1">Start Date:</label>
-          <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+          <label htmlFor="startDate" className="label">Start Date:</label>
+          <input type="date" id="startDate" name="startDate" value={formData.startDate} onChange={handleChange} className="input-field" required />
         </div>
         <div className="mb-4">
-          <label htmlFor="endDate" className="block mb-1">End Date:</label>
-          <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+          <label htmlFor="endDate" className="label">End Date:</label>
+          <input type="date" id="endDate" name="endDate" value={formData.endDate} onChange={handleChange} className="input-field" required />
         </div>
-        <div className="mb-4">
-          <label htmlFor="reason" className="block mb-1">Reason for Leaving:</label>
-          <textarea id="reason" name="reason" value={formData.reason} onChange={handleChange} className="w-full px-4 py-2 border border-gray-300 rounded" required />
+        <div className="mb-6">
+          <label htmlFor="reason" className="label">Reason for Leaving:</label>
+          <textarea id="reason" name="reason" value={formData.reason} onChange={handleChange} className="input-field" required />
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">Generate Resignation Letter</button>
+        <button type="submit" className="button w-full">Generate Resignation Letter</button>
       </form>
       {resignationLetter && (
-        <div className="p-4 border border-gray-300 rounded whitespace-pre-wrap">{resignationLetter}</div>
+        <div className="bg-white shadow-md rounded-lg p-6 whitespace-pre-wrap">{resignationLetter}</div>
       )}
     </main>
   );
 }
 
+These changes will give the form a more professional and stylish appearance:
+
+- The form now has a white background with a shadow effect to make it stand out.
+- The input fields and labels have consistent styling using the custom Tailwind CSS classes defined in `globals.css`.
+- The submit button has an updated style with a blue background and hover effect.
+- The generated resignation letter is also displayed in a white box with a shadow effect.
+- The overall layout is centered and has some padding for better readability.
+
+Feel free to further customize the styles according to your preferences and branding.
