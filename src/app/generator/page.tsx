@@ -77,6 +77,3 @@ export default function Home() {
   );
 }
 
-The `src/app/api/generate/route.ts` file should also remain unchanged.
-
-With these updates, the landing page and the generator page are now correctly set up, and the "Get Started" button on the landing page will navigate to the `/generator` page when clicked.

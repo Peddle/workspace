@@ -24,5 +24,3 @@ export default function Home() {
   );
 }
 
-And here's the `src/app/generator/page.tsx` file, which should remain unchanged:
-
